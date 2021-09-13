@@ -13,13 +13,12 @@ const fetchPlanets = async (pageNum) =>{
 const Planets = () => {
 
     const [ pageNum, setPageNum ] = useState(1);
-    const {data, status} = useQuery(['planets', pageNum], ()=>fetchPlanets(pageNum), {
+    const { data, status } = useQuery(['planets', pageNum], ()=>fetchPlanets(pageNum), {
         //staleTime: 5000,
         //cacheTime: 20,
         //onSuccess: ()=>{console.log('data loaded successfully')}
         keepPreviousData: true
     });
-    console.log(status)
     return (
         <div>
             {status==='loading' && <span className='center' ><CircularProgress /></span>}
@@ -27,9 +26,9 @@ const Planets = () => {
             {status==='success' && 
             <div>
                 <div className='pagination'>
-                    <button onClick={()=> pageNum !== 1 && setPageNum(prevNum=>prevNum-1)} className="prev">Previous Page</button>
+                    <button onClick={()=> pageNum !== 1 && setPageNum(prevNum=>prevNum-1)} className="prev" disabled={pageNum===1}>Previous Page</button>
                     <p  className="current">Current Page: {pageNum}</p>
-                    <button onClick={()=> data.next !== null && setPageNum(prevNum=>prevNum+1)} className="next">Next Page</button>
+                    <button onClick={()=> data.next !== null && setPageNum(prevNum=>prevNum+1)} className="next" disabled={data.next===null}>Next Page</button>
                 </div>
                 {data.results.map((planet)=><Planet key={planet.name} planet={planet}/>)}
             </div>}

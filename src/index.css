@@ -22,16 +22,19 @@ h1{
 .content{
   text-align: left;
 }
+
 .NavBar{
   margin-bottom: 30px;
   margin-top: 10px;
 }
+
 .NavBar{
   background: rgb(41, 41, 41);
   padding: 10px 0px;
   position: sticky;
   top: 0;
 }
+
 button{
   padding: 8px 15px;
   margin: 5px 10px;
@@ -42,6 +45,7 @@ button{
   font-size: 1rem;
   
 }
+
 .card .info{
   padding-left: 5px;
   color: rgb(243, 219, 0);
@@ -53,6 +57,10 @@ button:hover,.NavBar-active{
   border-color: aqua !important;
 }
 
+button:disabled{
+  opacity: 0.3;
+}
+
 .card{
   background: rgb(27, 27, 27) ;
   color: rgb(199, 199, 199);
@@ -60,9 +68,11 @@ button:hover,.NavBar-active{
   border-radius: 20px;
   margin: 10px 0px;
 }
+
 .card p{
   padding: 2px 0px;
 }
+
 .card h2{
   font-size: 1.2rem;
   color: aqua;
@@ -73,17 +83,21 @@ button:hover,.NavBar-active{
   top: 50%;
   left: 50%;
 }
+
 .pagination{
   margin: 20px 0px;
   display: flex;
 }
+
 .pagination .prev{
   justify-content: flex-start;
 }
+
 .pagination .current{
   flex:auto;
   text-align: center;
 }
+
 .pagination .next{
   justify-content: flex-end;
 }
