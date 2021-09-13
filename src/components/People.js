@@ -12,7 +12,7 @@ const fetchPeople = async (pageNum) =>{
 const People = () => {
 
     const [ pageNum, setPageNum ] = useState(1);
-    const {data, status} = useQuery(['people', pageNum], ()=>fetchPeople(pageNum),{
+    const {data, isFetching, status} = useQuery(['people', pageNum], ()=>fetchPeople(pageNum),{
         keepPreviousData: true
     });
 
@@ -22,9 +22,9 @@ const People = () => {
             {status==='error' && <h2>Error occured while fetching data</h2>}
             {status==='success' && <div>
             <div className='pagination'>
-                    <button onClick={()=> pageNum !== 1 && setPageNum(prevNum=>prevNum-1)} className="prev" disabled={pageNum===1}>Previous Page</button>
+                    <button onClick={()=> pageNum !== 1 && setPageNum(prevNum=>prevNum-1)} className="prev" disabled={pageNum===1 || isFetching}>Previous Page</button>
                     <p  className="current">Current Page: {pageNum}</p>
-                    <button onClick={()=> data.next !== null && setPageNum(prevNum=>prevNum+1)} className="next" disabled={data.next===null}>Next Page</button>
+                    <button onClick={()=> data.next !== null && setPageNum(prevNum=>prevNum+1)} className="next" disabled={data.next===null || isFetching}>Next Page</button>
             </div>
                 {data.results.map((person)=><Person key={person.name} person={person} />)}
             </div>}
