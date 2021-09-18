@@ -78,6 +78,10 @@ button:disabled{
   color: aqua;
 }
 
+.card:hover{
+  background:rgb(15, 15, 15);
+}
+
 .center{
   position: absolute;
   top: 50%;

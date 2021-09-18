@@ -10,7 +10,6 @@ const Planet = ({planet}) => {
             <p>Climate-  <span className='info'>{climate}</span></p>            
             <p>Terrain-  <span className='info'>{terrain}</span></p>            
             <p>Population-  <span className='info'>{population}</span></p>            
-            
         </div>
     )
 }

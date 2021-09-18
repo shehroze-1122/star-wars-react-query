@@ -5,7 +5,6 @@ import Planet from './Planet';
 
 const fetchPlanets = async (pageNum) =>{
     const resp = await fetch(`https://swapi.dev/api/planets/?page=${pageNum}`);
-    console.log(`https://swapi.dev/api/planets/?page=${pageNum} `)
     const data = resp.json()
     return data;
 }
